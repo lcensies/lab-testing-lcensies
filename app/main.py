@@ -1,5 +1,6 @@
 from .bank import Bank
 
+
 def print_menu():
     print("\n--- Bank System Main Menu ---")
     print("1. Add Customer")
@@ -14,6 +15,7 @@ def print_menu():
     print("10. View Account Transactions")
     print("11. View All Customers")
     print("12. Exit")
+
 
 def main():
     bank = Bank()
@@ -86,7 +88,9 @@ def main():
             elif choice == "11":
                 customers = bank.get_all_customers()
                 for customer in customers:
-                    print(f"ID: {customer[0]}, Name: {customer[1]}, Address: {customer[2]}")
+                    print(
+                        f"ID: {customer[0]}, Name: {customer[1]}, Address: {customer[2]}"
+                    )
 
             elif choice == "12":
                 print("Exiting the bank system.")
@@ -97,6 +101,7 @@ def main():
 
         except Exception as e:
             print(f"An error occurred: {e}")
+
 
 if __name__ == "__main__":
     main()

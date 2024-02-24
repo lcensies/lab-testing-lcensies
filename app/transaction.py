@@ -31,4 +31,6 @@ class Transaction:
             raise ValueError("Insufficient funds in the source account.")
         self.database.update_account_balance(from_account_id, from_account[3] - amount)
         self.database.update_account_balance(to_account_id, to_account[3] + amount)
-        self.database.add_transaction(from_account_id, to_account_id, amount, "transfer")
+        self.database.add_transaction(
+            from_account_id, to_account_id, amount, "transfer"
+        )

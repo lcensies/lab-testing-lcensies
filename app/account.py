@@ -1,6 +1,7 @@
 class Account:
-
-    def __init__(self, database, customer_id=None, account_type="checking", balance=0.0):
+    def __init__(
+        self, database, customer_id=None, account_type="checking", balance=0.0
+    ):
         self.database = database
         self.balance = balance
         if customer_id:
