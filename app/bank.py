@@ -3,8 +3,9 @@ from .transaction import Transaction
 from .customer import Customer
 from .account import Account
 
+
 class Bank:
-    def __init__(self, db_path='bank.db'):
+    def __init__(self, db_path="bank.db"):
         self.database = Database(db_path)
         self.transaction_system = Transaction(self.database)
 
@@ -27,7 +28,12 @@ class Bank:
     def open_account(self, customer_id, account_type, balance):
         """Open a new account for an existing customer."""
 
-        account = Account(self.database, customer_id=customer_id, account_type=account_type, balance=balance)
+        account = Account(
+            self.database,
+            customer_id=customer_id,
+            account_type=account_type,
+            balance=balance,
+        )
         return account.account_id
 
     def close_account(self, account_id):
@@ -60,10 +66,10 @@ class Bank:
     def get_all_customers(self):
         """Retrieve all customers from the bank."""
         return self.database.get_all_customers()
-    
+
     def get_account(self, account_id):
         """Retrieve details for a specific account."""
         return self.database.get_account(account_id)
-    
+
     def close_connection(self):
         self.database.close()
