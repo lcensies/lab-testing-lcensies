@@ -13,7 +13,7 @@ def normalize_sql(sql):
 
 class TestDatabase(unittest.TestCase):
     def setUp(self):
-        self.db_path = "test_bank.db"
+        self.db_path = ":memory:"
         self.database = Database(self.db_path)
 
     @patch("app.database.sqlite3.connect")
